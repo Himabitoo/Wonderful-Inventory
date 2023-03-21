@@ -1,7 +1,10 @@
 package com.ell.wonderinventory.Events;
 
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.InventoryMenu;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,7 +16,7 @@ public class PlayerEventHandler {
 
     private static final Logger LOGGER = LogManager.getLogger();
 
-    private static final String msg = "Hello. you pick up Item!!";
+    private static String msg = "Hello. you pick up Item!!";
 
     @SubscribeEvent
     public static void onItemPickup(ItemPickupEvent event){
@@ -23,8 +26,19 @@ public class PlayerEventHandler {
 
     }
 
+    @SubscribeEvent
+    public  static void onPlayerGetDamage(LivingDamageEvent event){
+
+        Entity entity = event.getEntity();
+        String fd = String.valueOf(entity.fallDistance);
+        entity.sendMessage(new TextComponent(fd),entity.getUUID());
+
+    }
+
 //    @SubscribeEvent
-//    public  static void onInventory
+//    public  static void onInventory(){
+//
+//    }
 
 
 }
