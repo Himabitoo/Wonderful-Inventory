@@ -1,10 +1,14 @@
 package com.ell.wonderinventory;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent.ItemPickupEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -76,5 +80,7 @@ public class WonderInventory
             // Register a new block here
             LOGGER.info("HELLO from Register Block");
         }
+
     }
 }
+
